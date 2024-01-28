@@ -20,16 +20,18 @@ public class Product {
 	private BigDecimal price;
 	@Column
 	private String description;
-	
+	@Column
+	private String url;
 	
 	public Product() {
 	}
-	public Product(Integer pid, String productName, BigDecimal price, String description) {
+	public Product(Integer pid, String productName, BigDecimal price, String description, String url) {
 		super();
 		this.pid = pid;
 		this.productName = productName;
 		this.price = price;
 		this.description = description;
+		this.url = url;
 	}
 	public Integer getPid() {
 		return pid;
@@ -55,12 +57,15 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	@Override
 	public String toString() {
 		return "Product [pid=" + pid + ", productName=" + productName + ", price=" + price + ", description="
-				+ description + "]";
+				+ description + ", url=" + url + "]";
 	}
-	
-	
-	
 }

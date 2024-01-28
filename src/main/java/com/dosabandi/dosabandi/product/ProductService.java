@@ -21,8 +21,24 @@ public class ProductService {
 	}
 
 	public Product getProduct(Integer pid) {
-		// TODO Auto-generated method stub
 		return repository.findById(pid).get();
 	}
+
+	public Product addProduct(Product product) {
+		return repository.save(product);
+	}
+
+	public Product updateProduct(int id, Product product) {
+		Product productToUpdate = repository.findById(id).orElseThrow();
+		productToUpdate.setProductName(product.getProductName());
+		productToUpdate.setPrice(product.getPrice());
+		productToUpdate.setDescription(product.getDescription());
+		productToUpdate.setUrl(product.getUrl());
+        return repository.save(productToUpdate);
+    }
+
+    public void deleteProduct(int id) {
+    	repository.deleteById(id);
+    }
 
 }
